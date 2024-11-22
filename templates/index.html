@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Heart Disease Prediction</h1>
+        <form action="/predict" method="POST" class="mt-4">
+            <div class="form-group">
+                <label for="Age">Age</label>
+                <input type="number" name="Age" id="Age" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="Sex">Sex</label>
+                <select name="Sex" id="Sex" class="form-control" required>
+                    <option value="" disabled selected>Please select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ChestPainType">Chest Pain Type</label>
+                <select name="ChestPainType" id="ChestPainType" class="form-control" required>
+                    <option value="" disabled selected>Please select</option>
+                    <option value="Typical Angina">Typical Angina</option>
+                    <option value="Atypical Angina">Atypical Angina</option>
+                    <option value="Non-Anginal Pain">Non-Anginal Pain</option>
+                    <option value="Asymptomatic">Asymptomatic</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="RestingBP">Resting Blood Pressure (mm Hg)</label>
+                <input type="number" step="0.1" name="RestingBP" id="RestingBP" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="Cholesterol">Cholesterol (mg/dL)</label>
+                <input type="number" step="0.1" name="Cholesterol" id="Cholesterol" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="FastingBS">Fasting Blood Sugar (1 = True, 0 = False)</label>
+                <select name="FastingBS" id="FastingBS" class="form-control" required>
+                    <option value="" disabled selected>Please select</option>
+                    <option value="1">True</option>
+                    <option value="0">False</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="RestingECG">Resting Electrocardiographic Results</label>
+                <select name="RestingECG" id="RestingECG" class="form-control" required>
+                    <option value="" disabled selected>Please select</option>
+                    <option value="Normal">Normal</option>
+                    <option value="ST-T Wave Abnormality">ST-T Wave Abnormality</option>
+                    <option value="Left Ventricular Hypertrophy">Left Ventricular Hypertrophy</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="MaxHR">Maximum Heart Rate Achieved</label>
+                <input type="number" name="MaxHR" id="MaxHR" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="ExerciseAngina">Exercise-Induced Angina</label>
+                <select name="ExerciseAngina" id="ExerciseAngina" class="form-control" required>
+                    <option value="" disabled selected>Please select</option>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Oldpeak">ST Depression Induced by Exercise (Oldpeak)</label>
+                <input type="number" step="0.1" name="Oldpeak" id="Oldpeak" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="ST_Slope">ST Slope</label>
+                <select name="ST_Slope" id="ST_Slope" class="form-control" required>
+                    <option value="" disabled selected>Please select</option>
+                    <option value="Up">Up</option>
+                    <option value="Flat">Flat</option>
+                    <option value="Down">Down</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Predict</button>
+        </form>
+        <div class="mt-4">
+            <h3 class="text-center" id="prediction">{{ prediction_text }}</h3>
+        </div>
+    </div>
+</body>
+</html>
